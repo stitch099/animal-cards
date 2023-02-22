@@ -1,9 +1,10 @@
 import React from 'react';
+import './style.css';
 
 function App() {
   return (
-    <div>
-      <h2>Hello World</h2>
+    <div className='contain'>
+      <img src={require("./images/Bear.jpg")} alt="BEAR" />
     </div>
   );
 }

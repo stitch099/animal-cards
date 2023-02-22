@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import Bear from './images/Bear.jpg';
 
 function App() {
   return (

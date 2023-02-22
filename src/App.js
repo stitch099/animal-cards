@@ -6,7 +6,7 @@ import Bear from "./images/Bear.jpg";
 function App() {
   return (
     <div className='contain'>
-      <img src={require(Bear)} alt="BEAR" />
+      <img src={Bear} alt="BEAR" />
     </div>
   );
 }

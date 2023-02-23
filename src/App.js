@@ -1,11 +1,12 @@
 import React from 'react';
 import './style.css';
-
+import Image from './Image.js';
 
 function App() {
+
   return (
     <div className='contain'>
-      <img src={require("./images/Bear.jpg")} alt="BEAR" />
+      <Image />
     </div>
   );
 }

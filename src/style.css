@@ -1,8 +1,14 @@
-/* img{
+body {
+    background-color: #aaa ;
+}
+img{
     width: 382px;
     height: 573px;
     background-color: black;
-} */
+}
+img:hover {
+    cursor: pointer;
+}
 .contain {
     margin: 0;
     display: flex;

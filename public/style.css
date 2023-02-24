@@ -1,0 +1,17 @@
+body {
+    background-color: #aaa !important;
+}
+img{
+    width: 382px;
+    height: 573px;
+    background-color: black;
+}
+img:hover {
+    cursor: pointer;
+}
+.contain {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

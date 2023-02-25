@@ -30,19 +30,18 @@ const animals = [
 ];
 
 const changeImage = (id) => {
-        if (id === 25){
-            animal.id = 0;
-            animal.imageSrc = "./images/Bear.jpg";
-           animal.animal = "Bear";
-           renderImages(animal);
-        }else if (id === animals[id].id) {
-            animal.id = parseInt([id + 1]);
-            animal.imageSrc = animals[id + 1].imageSrc;
-            animal.animal = animals[id + 1].animal;
-            renderImages(animal);
-        } else {
-            renderImage(animals[0]);
-        }
+    if (id === 25) {
+        animal.id = 0;
+        animal.imageSrc = "./images/Bear.jpg";
+        animal.animal = "Bear";
+        renderImages(animal);
+    } else if (id === animals[id].id) {
+        let randomValue = animals[Math.floor(Math.random() * animals.length)];
+        animal = randomValue;
+        renderImages(animal);
+    } else {
+        renderImage(animals[0]);
+    }
 };
 
 const renderImages = (data) => {
@@ -53,8 +52,17 @@ const renderImages = (data) => {
 
 const renderImage = (data) => {
     return `
-        <img src="${data.imageSrc}" alt="${data.animal}" onclick="changeImage(${data.id})" >
+        <img src="${data.imageSrc}" alt="${data.animal}" onclick="changeImage(${data.id})" id="image" >
     `
 };
 
 renderImages(animal);
+
+const keyPress = (key) => {
+    if ((key.keyCode == '32') || (key.keyCode == '16') || (key.keyCode == '17')) {
+        changeImage(animal.id);
+    };
+};
+
+window.addEventListener('keypress', keyPress, false);
+

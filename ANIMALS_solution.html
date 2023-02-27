@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMALS</title>
+    <link rel="stylesheet" href="ANIMALS_files/style.css">
+</head>
+
+<body>
+    <div class="contain" id="imgAnimal"> </div>
+
+    <script>
+
+        let index = 0;
+
+        const animals = [
+            { imagePath: "./images/Bear.jpg", name: "Bear" },
+            { imagePath: "./images/Bird.jpg", name: "Bird" },
+            { imagePath: "./images/Cat.jpg", name: "Cat" },
+            { imagePath: "./images/Cow.jpg", name: "Cow" },
+            { imagePath: "./images/Dear.jpg", name: "Dear" },
+            { imagePath: "./images/Dinosuar.jpg", name: "Dinosuar" },
+            { imagePath: "./images/Dog.jpg", name: "Dog" },
+            { imagePath: "./images/Dolphin.jpg", name: "Dolphin" },
+            { imagePath: "./images/Duck.jpg", name: "Duck" },
+            { imagePath: "./images/Elephant.jpg", name: "Elephant" },
+            { imagePath: "./images/Fox.jpg", name: "Fox" },
+            { imagePath: "./images/Giraffe.jpg", name: "Giraffe" },
+            { imagePath: "./images/Goat.jpg", name: "Goat" },
+            { imagePath: "./images/Horse.jpg", name: "Horse" },
+            { imagePath: "./images/Horse2.jpg", name: "Horse2" },
+            { imagePath: "./images/Lion.jpg", name: "Lion" },
+            { imagePath: "./images/Monkey.jpg", name: "Monkey" },
+            { imagePath: "./images/Owl.jpg", name: "Owl" },
+            { imagePath: "./images/Rhinoceros.jpg", name: "Rhinoceros" },
+            { imagePath: "./images/Seahorse.jpg", name: "Seahorse" },
+            { imagePath: "./images/Sheep.jpg", name: "Sheep" },
+            { imagePath: "./images/Tiger.jpg", name: "Tiger" },
+            { imagePath: "./images/Wolf.jpg", name: "Wolf" },
+            { imagePath: "./images/Zebra.jpg", name: "Zebra" },
+            { imagePath: "./images/Hippos.png", name: "Hippos" },
+            { imagePath: "./images/Penguin.png", name: "Penguin" }
+        ];
+
+        const updateImage = (id) => {
+            // check if id is number
+            // if (id && typeof id === 'number') {
+            //     id = id % animals.length;
+            // } else {
+            //     id = 0;
+            // }
+
+            if (id == null) id = 0;
+            else id = id % animals.length;
+            let htmlValue = renderAnimalImage(animals[id]);
+            console.log(`htmlValue: ${htmlValue}`);
+
+            document.querySelector('#imgAnimal').innerHTML = htmlValue;
+        };
+
+        const nextImage = () => {
+            index = (index + 1) % animals.length;
+            updateImage(index);
+        }
+
+        const previousImage = () => {
+            index = (index - 1 + animals.length) % animals.length;
+            updateImage(index);
+        }
+
+        const randomImage = () => {
+            index = Math.floor(Math.random() * animals.length);
+            updateImage(index);
+        }
+
+
+        const renderAnimalImage = (data) => {
+            return `<img src="${data.imagePath}" alt="${data.name}">`
+        };
+
+        const keyPress = (key) => {
+            // randomImage();
+
+            // switch case space right arrow left arrow 
+            switch (key.keyCode) {
+                
+                case 32: // space
+                    randomImage();
+                    break;
+
+                case 37: // left
+                case 38: // up 
+                    previousImage();
+                    break;
+
+                case 39: // right
+                case 40: // down 
+                    nextImage();
+                    break;
+
+                default:
+                    break;
+            }
+
+
+             // console.log(key)
+        };
+
+
+        window.addEventListener('keydown', keyPress, false);
+
+        let main = () => {
+            updateImage();
+        }
+
+        main()
+
+    </script>
+
+</body>
+
+</html>

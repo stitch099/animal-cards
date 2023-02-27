@@ -39,9 +39,7 @@ const changeImage = (id) => {
         let randomValue = animals[Math.floor(Math.random() * animals.length)];
         animal = randomValue;
         renderImages(animal);
-    } else {
-        renderImage(animals[0]);
-    }
+    } 
 };
 
 const renderImages = (data) => {
@@ -59,10 +57,17 @@ const renderImage = (data) => {
 renderImages(animal);
 
 const keyPress = (key) => {
-    if ((key.keyCode == '32') || (key.keyCode == '16') || (key.keyCode == '17')) {
+    if(key.keyCode == '32'){
         changeImage(animal.id);
-    };
+    }else if ((key.keyCode == '37') || (key.keyCode == '38')){
+        changeImage(animal.id);
+    }else if ((key.keyCode == '39')|| (key.keyCode == '40')){
+        changeImage(animal.id);
+    }
+    // if ((key.keyCode == '32') || (key.keyCode == '37') || (key.keyCode == '38')) {
+    //     changeImage(animal.id);
+    // };
 };
 
-window.addEventListener('keypress', keyPress, false);
+window.addEventListener('keydown', keyPress, false);
 
